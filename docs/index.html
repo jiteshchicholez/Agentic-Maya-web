@@ -49,19 +49,19 @@
 
       <section id="quickstart">
         <h2>⚡ Quick Start</h2>
-        <p>Run a pipeline, check status, and inspect the audit trail using the real <code>myna</code> CLI commands supported by Agentic Maya.</p>
+        <p>Run a pipeline, check status, and inspect the audit trail using the real <code>maya</code> CLI commands supported by Agentic Maya.</p>
         <div class="grid">
           <div class="card">
             <h3>Run a pipeline</h3>
-            <div class="code"><pre>myna run ./pipelines/document_review.yml</pre></div>
+            <div class="code"><pre>maya run ./pipelines/document_review.yml</pre></div>
           </div>
           <div class="card">
             <h3>Check status</h3>
-            <div class="code"><pre>myna status &lt;session_id&gt;</pre></div>
+            <div class="code"><pre>maya status &lt;session_id&gt;</pre></div>
           </div>
           <div class="card">
             <h3>View audit trail</h3>
-            <div class="code"><pre>myna audit &lt;session_id&gt;</pre></div>
+            <div class="code"><pre>maya audit &lt;session_id&gt;</pre></div>
           </div>
         </div>
       </section>
@@ -189,27 +189,27 @@
         <div class="grid">
           <div class="card">
             <h3>Run</h3>
-            <div class="code"><pre>myna run ./pipelines/document_review.yml</pre></div>
+            <div class="code"><pre>maya run ./pipelines/document_review.yml</pre></div>
           </div>
           <div class="card">
             <h3>Status</h3>
-            <div class="code"><pre>myna status &lt;session_id&gt;</pre></div>
+            <div class="code"><pre>maya status &lt;session_id&gt;</pre></div>
           </div>
           <div class="card">
             <h3>Audit</h3>
-            <div class="code"><pre>myna audit &lt;session_id&gt;</pre></div>
+            <div class="code"><pre>maya audit &lt;session_id&gt;</pre></div>
           </div>
           <div class="card">
             <h3>Checkpoint</h3>
-            <div class="code"><pre>myna checkpoint &lt;session_id&gt; --label after_validation</pre></div>
+            <div class="code"><pre>maya checkpoint &lt;session_id&gt; --label after_validation</pre></div>
           </div>
           <div class="card">
             <h3>Rollback</h3>
-            <div class="code"><pre>myna rollback &lt;session_id&gt; --to after_validation</pre></div>
+            <div class="code"><pre>maya rollback &lt;session_id&gt; --to after_validation</pre></div>
           </div>
           <div class="card">
             <h3>Approve</h3>
-            <div class="code"><pre>myna approve &lt;session_id&gt; --request-id &lt;id&gt;</pre></div>
+            <div class="code"><pre>maya approve &lt;session_id&gt; --request-id &lt;id&gt;</pre></div>
           </div>
         </div>
       </section>
@@ -224,8 +224,8 @@ model: gpt-4-turbo
 fallback_model: gpt-3.5-turbo
 budget_tokens: 100000
 global_policies:
-  - myna.audit_all_actions
-  - myna.budget_ceiling
+  - maya.audit_all_actions
+  - maya.budget_ceiling
   - org.pii_block
   - org.external_call_gate
   - org.critical_escalation

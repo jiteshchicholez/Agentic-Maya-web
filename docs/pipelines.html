@@ -49,8 +49,8 @@ model: gpt-4-turbo
 fallback_model: gpt-3.5-turbo
 budget_tokens: 100000
 global_policies:
-  - myna.audit_all_actions
-  - myna.budget_ceiling
+  - maya.audit_all_actions
+  - maya.budget_ceiling
   - org.pii_block
   - org.external_call_gate
   - org.critical_escalation
@@ -99,8 +99,8 @@ model: gpt-4-turbo
 fallback_model: gpt-3.5-turbo
 budget_tokens: 150000
 global_policies:
-  - myna.audit_all_actions
-  - myna.budget_ceiling
+  - maya.audit_all_actions
+  - maya.budget_ceiling
   - org.pii_block
   - org.external_call_gate
   - org.critical_escalation
@@ -149,8 +149,8 @@ model: gpt-4-turbo
 fallback_model: gpt-3.5-turbo
 budget_tokens: 80000
 global_policies:
-  - myna.audit_all_actions
-  - myna.budget_ceiling
+  - maya.audit_all_actions
+  - maya.budget_ceiling
   - org.pii_block
   - org.external_call_gate
   - org.critical_escalation
@@ -194,7 +194,7 @@ steps:
         <h2>Pipeline Execution Model</h2>
         <p>Each pipeline supports resume, checkpoint, rollback, HITL approval, and final audit summary generation.</p>
         <div class="code"><pre>RUNNING → checkpoint saved → AWAITING_APPROVAL → resumed after approval → COMPLETED</pre></div>
-        <p>Use <code>myna status</code>, <code>myna checkpoint</code>, and <code>myna rollback</code> to manage the session lifecycle.</p>
+        <p>Use <code>maya status</code>, <code>maya checkpoint</code>, and <code>maya rollback</code> to manage the session lifecycle.</p>
       </section>
     </main>
   </div>
