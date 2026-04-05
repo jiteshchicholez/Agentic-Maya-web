@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Maya - Pipelines</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <a href="#" class="brand">
+        <img src="../logo.png" alt="Agentic Maya Logo">
+        Agentic Maya - Pipelines
+      </a>
+      <nav class="topnav">
+        <a href="index.html">Docs Home</a>
+        <a href="policies.html">Policies</a>
+        <a href="skills.html">Skills</a>
+        <a href="../index.html">Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Pipeline Docs</h2>
+      <nav>
+        <a class="active" href="#doc-review">Document Review</a>
+        <a href="#code-audit">Code Audit</a>
+        <a href="#data-enrichment">Data Enrichment</a>
+        <a href="#execution">Execution Model</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <h1>Pipeline Architecture</h1>
+        <p>Detailed YAML-based pipeline definitions with budgets, governance controls, fallback models, and step checkpointing.</p>
+      </section>
+
+      <section id="doc-review">
+        <h2>Document Review Pipeline</h2>
+        <p>Automates contract compliance by summarizing, validating, and generating a report with audit logging at every step.</p>
+        <div class="code"><pre>pipeline_id: document_review
+name: Document Review Pipeline
+model: gpt-4-turbo
+fallback_model: gpt-3.5-turbo
+budget_tokens: 100000
+global_policies:
+  - myna.audit_all_actions
+  - myna.budget_ceiling
+  - org.pii_block
+  - org.external_call_gate
+  - org.critical_escalation
+steps:
+  - step_id: summarization_step
+    skill_id: file_summarizer
+    checkpoint_after: true
+  - step_id: validation_step
+    skill_id: data_validator
+    checkpoint_after: true
+  - step_id: report_generation
+    skill_id: report_writer
+    checkpoint_after: true</pre></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Budget</td>
+                <td>100,000 tokens</td>
+              </tr>
+              <tr>
+                <td>Governance</td>
+                <td>HIGH</td>
+              </tr>
+              <tr>
+                <td>Use case</td>
+                <td>GDPR & SOC2 contract review</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="code-audit">
+        <h2>Code Audit Pipeline</h2>
+        <p>Analyzes source code for vulnerabilities, policy violations, and compliance risks using the same secure pipeline model.</p>
+        <div class="code"><pre>pipeline_id: code_audit
+name: Code Audit Pipeline
+model: gpt-4-turbo
+fallback_model: gpt-3.5-turbo
+budget_tokens: 150000
+global_policies:
+  - myna.audit_all_actions
+  - myna.budget_ceiling
+  - org.pii_block
+  - org.external_call_gate
+  - org.critical_escalation
+steps:
+  - step_id: source_analysis
+    skill_id: file_summarizer
+    checkpoint_after: true
+  - step_id: vulnerability_check
+    skill_id: data_validator
+    checkpoint_after: true
+  - step_id: report_generation
+    skill_id: report_writer
+    checkpoint_after: true</pre></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Budget</td>
+                <td>150,000 tokens</td>
+              </tr>
+              <tr>
+                <td>Governance</td>
+                <td>HIGH</td>
+              </tr>
+              <tr>
+                <td>Use case</td>
+                <td>Security and SBOM review</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="data-enrichment">
+        <h2>Data Enrichment Pipeline</h2>
+        <p>Validates records, enriches them with semantic context, and checks output quality before returning final results.</p>
+        <div class="code"><pre>pipeline_id: data_enrichment
+name: Data Enrichment Pipeline
+model: gpt-4-turbo
+fallback_model: gpt-3.5-turbo
+budget_tokens: 80000
+global_policies:
+  - myna.audit_all_actions
+  - myna.budget_ceiling
+  - org.pii_block
+  - org.external_call_gate
+  - org.critical_escalation
+steps:
+  - step_id: schema_validation
+    skill_id: data_validator
+    checkpoint_after: true
+  - step_id: enrichment
+    skill_id: semantic_search
+    checkpoint_after: true
+  - step_id: quality_check
+    skill_id: report_writer
+    checkpoint_after: true</pre></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Budget</td>
+                <td>80,000 tokens</td>
+              </tr>
+              <tr>
+                <td>Governance</td>
+                <td>MEDIUM</td>
+              </tr>
+              <tr>
+                <td>Use case</td>
+                <td>Master data improvement</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="execution">
+        <h2>Pipeline Execution Model</h2>
+        <p>Each pipeline supports resume, checkpoint, rollback, HITL approval, and final audit summary generation.</p>
+        <div class="code"><pre>RUNNING → checkpoint saved → AWAITING_APPROVAL → resumed after approval → COMPLETED</pre></div>
+        <p>Use <code>myna status</code>, <code>myna checkpoint</code>, and <code>myna rollback</code> to manage the session lifecycle.</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add active class to sidebar links based on scroll position
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidebar a[href^="#"]');
+
+    function setActiveLink() {
+      const scrollY = window.scrollY;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActiveLink);
+    setActiveLink(); // Set initial active link
+  </script>
+</body>
+</html>

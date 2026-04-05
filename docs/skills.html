@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Maya - Skills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <a href="#" class="brand">
+        <img src="../logo.png" alt="Agentic Maya Logo">
+        Agentic Maya - Skills
+      </a>
+      <nav class="topnav">
+        <a href="index.html">Docs Home</a>
+        <a href="pipelines.html">Pipelines</a>
+        <a href="policies.html">Policies</a>
+        <a href="../index.html">Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Skills Docs</h2>
+      <nav>
+        <a class="active" href="#summarizer">File Summarizer</a>
+        <a href="#validator">Data Validator</a>
+        <a href="#writer">Report Writer</a>
+        <a href="#search">Semantic Search</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <h1>Skill Definitions</h1>
+        <p>Reusable agent capabilities with governance levels, input/output contracts, and audit support.</p>
+      </section>
+
+      <section id="summarizer">
+        <h2>File Summarizer</h2>
+        <span class="badge badge-medium">MEDIUM</span>
+        <p>Extracts document key terms, structure, and intent to feed downstream validation.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Input</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>document_path</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>Source file location</td>
+              </tr>
+              <tr>
+                <td>max_terms</td>
+                <td>integer</td>
+                <td>No</td>
+                <td>Extraction limit</td>
+              </tr>
+              <tr>
+                <td>confidence_threshold</td>
+                <td>float</td>
+                <td>No</td>
+                <td>Minimum result confidence</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Output</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>key_terms</td>
+                <td>array</td>
+                <td>Extracted terms with scores</td>
+              </tr>
+              <tr>
+                <td>document_scope</td>
+                <td>string</td>
+                <td>Document summary</td>
+              </tr>
+              <tr>
+                <td>structured_fields</td>
+                <td>object</td>
+                <td>Parsed sections</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="validator">
+        <h2>Data Validator</h2>
+        <span class="badge badge-low">LOW</span>
+        <p>Validates structured records against schema and compliance rule sets.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Input</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>data_input</td>
+                <td>object/array</td>
+                <td>Yes</td>
+                <td>Records to validate</td>
+              </tr>
+              <tr>
+                <td>schema</td>
+                <td>object</td>
+                <td>Yes</td>
+                <td>Validation rules</td>
+              </tr>
+              <tr>
+                <td>frameworks</td>
+                <td>array</td>
+                <td>Yes</td>
+                <td>Compliance frameworks</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Output</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>validation_result</td>
+                <td>string</td>
+                <td>PASS / FAIL / REVIEW_REQUIRED</td>
+              </tr>
+              <tr>
+                <td>violations_found</td>
+                <td>array</td>
+                <td>Detected issues</td>
+              </tr>
+              <tr>
+                <td>risk_score</td>
+                <td>integer</td>
+                <td>Compliance score</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="writer">
+        <h2>Report Writer</h2>
+        <span class="badge badge-high">HIGH</span>
+        <p>Creates formal compliance reports with remediation steps and risk ratings.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Input</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>summary</td>
+                <td>object</td>
+                <td>Yes</td>
+                <td>Summarized findings</td>
+              </tr>
+              <tr>
+                <td>violations</td>
+                <td>array</td>
+                <td>Yes</td>
+                <td>Detected issues list</td>
+              </tr>
+              <tr>
+                <td>frameworks</td>
+                <td>array</td>
+                <td>Yes</td>
+                <td>Report frameworks</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Output</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>compliance_report</td>
+                <td>object</td>
+                <td>Formatted findings</td>
+              </tr>
+              <tr>
+                <td>remediation_steps</td>
+                <td>array</td>
+                <td>Ordered resolution tasks</td>
+              </tr>
+              <tr>
+                <td>risk_assessment</td>
+                <td>object</td>
+                <td>Overall risk summary</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="search">
+        <h2>Semantic Search</h2>
+        <span class="badge badge-medium">MEDIUM</span>
+        <p>Performs vector search over knowledge sources to enrich results and identify related context.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Input</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>query</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>Search prompt</td>
+              </tr>
+              <tr>
+                <td>knowledge_base</td>
+                <td>array</td>
+                <td>Yes</td>
+                <td>Search corpus</td>
+              </tr>
+              <tr>
+                <td>top_k</td>
+                <td>integer</td>
+                <td>No</td>
+                <td>Max hits</td>
+              </tr>
+              <tr>
+                <td>threshold</td>
+                <td>float</td>
+                <td>No</td>
+                <td>Min relevance</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Output</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>results</td>
+                <td>array</td>
+                <td>Ranked matches</td>
+              </tr>
+              <tr>
+                <td>relevance_scores</td>
+                <td>array</td>
+                <td>Confidence values</td>
+              </tr>
+              <tr>
+                <td>context_summary</td>
+                <td>string</td>
+                <td>Aggregated summary</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add active class to sidebar links based on scroll position
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidebar a[href^="#"]');
+
+    function setActiveLink() {
+      const scrollY = window.scrollY;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActiveLink);
+    setActiveLink(); // Set initial active link
+  </script>
+</body>
+</html>
